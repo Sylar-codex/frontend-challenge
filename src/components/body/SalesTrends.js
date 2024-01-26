@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Chart from "../utility-component/Chart";
 import arrowDown from "../../assets/icons/Arrow - Down 2.svg";
 import arrowDownDark from "../../assets/icons/dark-mode/Arrow - Down 2_dark.svg";
 
 function SalesTrends({ darkMode }) {
+  const [dropDown, setDropDown] = useState(false);
+  const [sortBy, setSortBy] = useState("Weekly");
+  console.log(dropDown);
   return (
     <div
       className={`${
@@ -26,15 +29,29 @@ function SalesTrends({ darkMode }) {
           >
             Sorted by:
           </h3>
-          <div className="flex items-center space-x-2 rounded-full border-2 h-9 w-24 border-headerStroke p-2">
-            <p className={`${darkMode ? "text-white" : "text-[#3A3F51]"}`}>
-              Weekly
-            </p>
-            <img
-              className="w-4 h-4"
-              src={darkMode ? arrowDownDark : arrowDown}
-              alt=""
-            />
+          <div className="relative z-10">
+            <div
+              onClick={() => {
+                setDropDown((prev) => !prev);
+              }}
+              className="flex lg:text-base text-sm hover:cursor-pointer items-center space-x-2 rounded-full border-2 h-9 border-headerStroke p-2"
+            >
+              <p className={`${darkMode ? "text-white" : "text-[#3A3F51]"} `}>
+                {sortBy}
+              </p>
+              <img
+                className="w-4 h-4"
+                src={darkMode ? arrowDownDark : arrowDown}
+                alt=""
+              />
+            </div>
+            {dropDown && (
+              <DropDownComponent
+                setDropDown={setDropDown}
+                setSortBy={setSortBy}
+                darkMode={darkMode}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -44,3 +61,43 @@ function SalesTrends({ darkMode }) {
 }
 
 export default SalesTrends;
+
+function DropDownComponent({ setDropDown, setSortBy, darkMode }) {
+  return (
+    <div
+      className={`absolute top-10 right-1 rounded-xl border-headerStroke lg:text-base text-sm shadow-lg w-40 ${
+        darkMode ? "bg-lighter-grey" : "bg-white"
+      } z-10`}
+    >
+      <div className="p-3 mt-3 text-gray-80 space-y-3">
+        <div
+          onClick={() => {
+            setSortBy("Weekly");
+            setDropDown(false);
+          }}
+          className="hover:cursor-pointer"
+        >
+          <p>Weekly</p>
+        </div>
+        <div
+          onClick={() => {
+            setSortBy("Monthly");
+            setDropDown(false);
+          }}
+          className="hover:cursor-pointer"
+        >
+          <p>Monthly</p>
+        </div>
+        <div
+          onClick={() => {
+            setSortBy("Yearly");
+            setDropDown(false);
+          }}
+          className="hover:cursor-pointer"
+        >
+          <p>Yearly</p>
+        </div>
+      </div>
+    </div>
+  );
+}

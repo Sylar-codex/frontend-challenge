@@ -4,7 +4,6 @@ import {
   VictoryChart,
   VictoryAxis,
   VictoryTooltip,
-  VictoryLabel,
   VictoryVoronoiContainer,
 } from "victory";
 function Chart({ darkMode }) {
@@ -23,26 +22,6 @@ function Chart({ darkMode }) {
     { id: 11, month: "Nov", income: 3000 },
     { id: 12, month: "Des", income: 25000 },
   ];
-
-  const CustomLabel = ({ x, y, datum }) => {
-    const isActive = datum === activeBar;
-    return (
-      <div
-        style={{
-          background: isActive ? "orange" : "#f0f0f0",
-          color: "black",
-          padding: "5px",
-          borderRadius: "5px",
-          fontSize: "12px",
-          textAlign: "center",
-        }}
-      >
-        {datum.income}
-        <br />
-        {datum.details}
-      </div>
-    );
-  };
 
   return (
     <div className="lg:-mt-10">
@@ -141,15 +120,6 @@ function Chart({ darkMode }) {
             },
           }}
         />
-        {activeBar && (
-          <VictoryLabel
-            text={activeBar.datum.income}
-            x={200} // Adjust the x-coordinate as needed
-            y={10} // Adjust the y-coordinate as needed
-            textAnchor="middle"
-            style={{ fill: "black", fontSize: 12 }}
-          />
-        )}
       </VictoryChart>
     </div>
   );
