@@ -46,7 +46,7 @@ function Chart({ darkMode }) {
           }}
           domain={{ min: 0, max: 60.0 }}
           tickValues={[0, 5000, 10000, 20000, 30000, 40000, 50000]}
-          tickFormat={(t) => t}
+          tickFormat={(t) => t.toLocaleString("de-DE")}
         />
         <VictoryBar
           data={data}
@@ -57,11 +57,41 @@ function Chart({ darkMode }) {
             duration: 2000,
             onLoad: { duration: 1000 },
           }}
+          events={[
+            {
+              childName: ["pie", "bar"],
+              target: "data",
+              eventHandlers: {
+                onMouseOver: () => {
+                  return [
+                    {
+                      mutation: (props) => {
+                        return {
+                          style: {
+                            fill: "url(#linear-gradient)",
+                            fillOpacity: 1,
+                          },
+                        };
+                      },
+                    },
+                  ];
+                },
+                onMouseOut: () => {
+                  return [
+                    {
+                      mutation: () => {
+                        return null;
+                      },
+                    },
+                  ];
+                },
+              },
+            },
+          ]}
           style={{
             data: {
-              fill: ({ datum }) =>
-                datum.id === 6 ? "url(#linear-gradient)" : "#34CAA5",
-              fillOpacity: ({ datum }) => (datum.id === 6 ? 1 : 0.22),
+              fill: "#34CAA5",
+              fillOpacity: 0.22,
               width: 21,
             },
           }}
