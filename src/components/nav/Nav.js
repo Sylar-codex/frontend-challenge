@@ -20,16 +20,16 @@ function Nav({ setDarkMode, darkMode }) {
   return (
     <div className={`lg:static fixed bottom-0 w-full lg:h-full h-20`}>
       <div
-        className={`p-5 lg:border-r-2 shadow-md lg:shadow-none border-headerStroke flex items-center space-x-3 lg:space-x-0 ${
+        className={`lg:p-5 p-2 lg:border-r-2 shadow-md lg:shadow-none border-headerStroke flex items-center lg:space-x-0 ${
           darkMode ? "lg:bg-dark-grey" : "lg:bg-backgroundColor"
-        } lg:flex-col flex-row h-full overflow-scroll ${
+        } lg:flex-col flex-row h-full w-full overflow-x-scroll ${
           darkMode ? "bg-lighter-grey" : "bg-white"
         }`}
       >
-        <div className="flex lg:flex-col flex-row space-x-5 lg:space-x-0 lg:space-y-5 justify-center items-center">
-          <div className="w-9 h-9 hidden lg:block">
-            <img className="w-full h-full" src={logo} alt="" />
-          </div>
+        <div className="w-9 h-9 hidden lg:block">
+          <img className="w-full h-full" src={logo} alt="" />
+        </div>
+        <div className="flex lg:flex-col lg:mt-5 flex-row space-x-5 lg:space-x-0 lg:space-y-5 lg:justify-center w-full lg:px-0 px-2 items-center">
           <div className="w-7 h-7">
             <img
               className="w-full h-full"
