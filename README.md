@@ -17,15 +17,15 @@ visit [my_design](https://frontend-challenge-flame.vercel.app/) for a demo
 	 <tbody>
   <tr> 
    
-   <td align="Center" width="25%">
+   <td align="Center" width="33.33%">
         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noreferrer"><img width="48" height="48" src="https://img.icons8.com/fluency/48/tailwind_css.png" alt="tailwind_css"/></a>
 	<br>TailwindCss
     </td> 
-  <td align="Center" width="25%">
+  <td align="Center" width="33.33%">
 	  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://img.icons8.com/color/48/000000/javascript--v1.png" width="36" height="36" alt="Javascript" /></a>
 	<br>Javascript
     </td>   
-      <td align="Center" width="25%">
+      <td align="Center" width="33.33%">
 	  <a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://img.icons8.com/color/48/000000/react-native.png" width="36" height="36" alt="React" /></a>
 	<br>React
     </td>  
