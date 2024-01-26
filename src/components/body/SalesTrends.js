@@ -6,7 +6,6 @@ import arrowDownDark from "../../assets/icons/dark-mode/Arrow - Down 2_dark.svg"
 function SalesTrends({ darkMode }) {
   const [dropDown, setDropDown] = useState(false);
   const [sortBy, setSortBy] = useState("Weekly");
-  console.log(dropDown);
   return (
     <div
       className={`${
