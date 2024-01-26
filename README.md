@@ -1,6 +1,15 @@
 ## Frontend Challenge
 
-This is a frontend challenge which is sponsored by [geegpay](geegpay.africa)
+This is a frontend challenge which is sponsored by [geegpay.africa](https://geegpay.africa)
+
+visit [my_design](https://frontend-challenge-flame.vercel.app/) for a demo
+
+# Technologies/Libraries used
+
+- React framework
+- Tailwind css for styling
+- Victory used in the implementation of the bar chart
+- Google fonts
 
 ## Tools and language
 
@@ -10,12 +19,8 @@ This is a frontend challenge which is sponsored by [geegpay](geegpay.africa)
    
    <td align="Center" width="25%">
         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noreferrer"><img width="48" height="48" src="https://img.icons8.com/fluency/48/tailwind_css.png" alt="tailwind_css"/></a>
-	<br>CSS
+	<br>TailwindCss
     </td> 
- <td align="Center" width="25%"> 
-    <a href="https://webpack.js.org/" target="_blank" rel="noreferrer"><img src="https://img.icons8.com/color/48/000000/webpack.png" width="36" height="36" alt="Webpack" /></a>
-    <br>Webpack
-    </td>  
   <td align="Center" width="25%">
 	  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://img.icons8.com/color/48/000000/javascript--v1.png" width="36" height="36" alt="Javascript" /></a>
 	<br>Javascript
