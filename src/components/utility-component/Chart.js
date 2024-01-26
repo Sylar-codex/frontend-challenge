@@ -1,6 +1,14 @@
-import React from "react";
-import { VictoryBar, VictoryChart, VictoryAxis } from "victory";
+import React, { useState } from "react";
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryAxis,
+  VictoryTooltip,
+  VictoryLabel,
+  VictoryVoronoiContainer,
+} from "victory";
 function Chart({ darkMode }) {
+  const [activeBar, setActiveBar] = useState(null);
   const data = [
     { id: 1, month: "Jan", income: 6000 },
     { id: 2, month: "Feb", income: 19000 },
@@ -15,6 +23,27 @@ function Chart({ darkMode }) {
     { id: 11, month: "Nov", income: 3000 },
     { id: 12, month: "Des", income: 25000 },
   ];
+
+  const CustomLabel = ({ x, y, datum }) => {
+    const isActive = datum === activeBar;
+    return (
+      <div
+        style={{
+          background: isActive ? "orange" : "#f0f0f0",
+          color: "black",
+          padding: "5px",
+          borderRadius: "5px",
+          fontSize: "12px",
+          textAlign: "center",
+        }}
+      >
+        {datum.income}
+        <br />
+        {datum.details}
+      </div>
+    );
+  };
+
   return (
     <div className="lg:-mt-10">
       <VictoryChart
@@ -24,6 +53,22 @@ function Chart({ darkMode }) {
         // prevent it from overlapping the axis
         domainPadding={20}
         gridX={false}
+        containerComponent={
+          <VictoryVoronoiContainer
+            labels={({ datum }) => `$${datum.income.toLocaleString("de-DE")}`} // Tooltip content
+            onActivated={(points) => setActiveBar(points[0])} // Set the active bar on activation
+            onDeactivated={() => setActiveBar(null)} // Reset when not hovering
+            labelComponent={
+              <VictoryTooltip
+                flyoutStyle={{
+                  stroke: "none",
+                  fill: "#000000",
+                }}
+                style={{ fontSize: 11, fill: "#ffffff" }}
+              />
+            }
+          />
+        }
       >
         <Gradients />
         <VictoryAxis
@@ -96,6 +141,15 @@ function Chart({ darkMode }) {
             },
           }}
         />
+        {activeBar && (
+          <VictoryLabel
+            text={activeBar.datum.income}
+            x={200} // Adjust the x-coordinate as needed
+            y={10} // Adjust the y-coordinate as needed
+            textAnchor="middle"
+            style={{ fill: "black", fontSize: 12 }}
+          />
+        )}
       </VictoryChart>
     </div>
   );

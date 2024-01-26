@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk&family=Martel+Sans:wght@300;400&family=Poppins&display=swap");
+
+* {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-family: "Martel Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
