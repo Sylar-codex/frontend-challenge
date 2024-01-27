@@ -7,7 +7,7 @@ import coin from "../../assets/icons/bulk/coin.svg";
 
 function SalesReport({ darkMode }) {
   return (
-    <div className="grid lg:gap-x-5 lg:gap-y-5 gap-x-2 gap-y-5 grid-cols-2 w-full h-[25.8rem]">
+    <div className="grid lg:gap-x-3 lg:gap-y-4 gap-x-2 gap-y-5 grid-cols-2 w-full h-[25.8rem]">
       <Card
         title={"Total Order"}
         success={true}

@@ -30,20 +30,26 @@ function Card({ success, icon, title, number, darkMode }) {
       </h2>
       <div className="flex items-center justify-between mt-5">
         <div
-          className={`flex items-center py-1 px-2 space-x-1 ${
+          className={`flex items-center py-1 px-1 lg:px-2 space-x-0.5 lg:space-x-1 ${
             success ? "bg-primary" : "bg-error"
           } bg-opacity-[12%] rounded-2xl`}
         >
-          <img className="w-4 h-4" src={success ? upTrend : downTrend} alt="" />
+          <img
+            className="lg:w-4 lg:h-4 w-3 h-3"
+            src={success ? upTrend : downTrend}
+            alt=""
+          />
           <p
             className={`${
               success ? "text-primary" : "text-error"
-            } lg:text-sm text-xs`}
+            } lg:text-sm text-[10px]`}
           >
             23.5%
           </p>
         </div>
-        <p className="text-[#606060] lg:text-sm text-xs">vs.previous month</p>
+        <p className="text-[#606060] lg:text-sm text-[11px]">
+          vs.previous month
+        </p>
       </div>
     </div>
   );
